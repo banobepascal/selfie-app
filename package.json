@@ -1,0 +1,15 @@
+{
+  "name": "selfie",
+  "version": "1.0.0",
+  "description": "Selfie app",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Banobe Pascal",
+  "license": "ISC"
+}
