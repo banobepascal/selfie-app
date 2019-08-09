@@ -10,10 +10,27 @@
 
     <h1>You are doing great Pascal</h1>
     <p>Continue the hard work</p>
+    <p>Latitude: <span id="latitude"></span></p><br>
+    <p>Logtitude: <span id="logtitude"></span></p>
+
     <script>
     if ('geolaction' in navigator){
         console.log('Geolocation is available');
         navigator.geolocation.getCurrentPosition(position => {
+            const lat = position.coords.latitude;
+            document.querySelector('#latitude').textContent = lat;
+            const lon = position.coords.longitude;
+            document.querySelector('#logtitude').textContent = lon;
+
+            const data = {lat, lon};
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            };
+            fetch('/api', options)
             console.log(position);
         })
     } else {
