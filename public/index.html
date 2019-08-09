@@ -13,6 +13,9 @@
     <script>
     if ('geolaction' in navigator){
         console.log('Geolocation is available');
+        navigator.geolocation.getCurrentPosition(position => {
+            console.log(position);
+        })
     } else {
         console.log('Geolocation not available');
     }
