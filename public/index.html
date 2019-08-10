@@ -14,7 +14,7 @@
     <p>Logtitude: <span id="logtitude"></span></p>
 
     <script>
-    if ('geolaction' in navigator){
+    if ('geolocation' in navigator){
         console.log('Geolocation is available');
         navigator.geolocation.getCurrentPosition(position => {
             const lat = position.coords.latitude;
