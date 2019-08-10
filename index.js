@@ -12,11 +12,9 @@ database.insert({ name: 'Pascal', status: 'Single'});
 
 app.post('/api', (req, res, next) => {
     console.log("I got your request");
-    console.log(req.body);
-    // const data = req.body;
-    res.json({
-        status: 'Success',
-        latitude: req.body.lat,
-        longitude: req.body.lon
-    });
+    const data = req.body;
+    const timestamp = Date.now();
+    data.timestamp = timestamp;
+    database.insert(data);
+    res.json(data);
 });
