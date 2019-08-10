@@ -21,7 +21,9 @@
     <button id="submit">submit</button>
 
     <script>
-    let lat, lon;
+
+        function setup() {
+            let lat, lon;
     const button = document.getElementById('submit');
     button.addEventListener('click', async event => {
     const mood = document.getElementById('mood').value;        
@@ -48,6 +50,12 @@
     } else {
         console.log('Geolocation not available');
     }
+
+        noCanvas();
+        const video = createCapture(VIDEO);
+        video.size(320, 240);
+        }
+    
     </script>
 </body>
 </html>
