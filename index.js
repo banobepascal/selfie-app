@@ -8,7 +8,17 @@ app.use(express.json({limit: '1mb'}));
 
 const database = new Datastore('database.db');
 database.loadDatabase();
-database.insert({ name: 'Pascal', status: 'Single'});
+
+app.get('/api', (req, res, next) => {
+    database.find({}, (err, data) => {
+        if (err) {
+            res.end();
+            return;
+        }
+        res.json(data);
+    });
+ ;
+});
 
 app.post('/api', (req, res, next) => {
     console.log("I got your request");
