@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
     <title>Next Page</title>
 </head>
 <body>
     <h2>You are on the next page</h2>
-
+    <li><a href="index.html">Home</a></li>
+    
     <script>
     async function getData() {
         const response = await fetch('/api');
@@ -17,10 +20,11 @@
         for (item of data){
             const root  = document.createElement('div');
             const mood = document.createElement('div');
-            mood.textContent = `mood: ${item.mood}`;
             const geo = document.createElement('div');
-            geo.textContent = `${item.lat}, ${item.lon}`;
             const date = document.createElement('div');
+
+            mood.textContent = `mood: ${item.mood}`;
+            geo.textContent = `${item.lat}, ${item.lon}`;
             const dateString = new Date(item.timestamp).toLocaleDateString();
             date.textContent = dateString;
 
